@@ -1,0 +1,14 @@
+import pandas as pd
+school_df = pd.read_csv("/school.csv")  
+print(school_df.head())
+school_df.describe()
+
+import pandas as pd
+game1_df = pd.read_csv("/game1.csv") 
+game1_df = game1_df.rename(columns={"cellphone": "device_type"})
+game1_df = game1_df.dropna()
+print(game1_df.head())
+game1_df.describe()
+game1_df = game1_df.reset_index(drop=True)
+print(game1_df.head())
+game1_df.to_csv('game1_formatted.csv')
