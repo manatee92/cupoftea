@@ -12,3 +12,15 @@ game1_df.describe()
 game1_df = game1_df.reset_index(drop=True)
 print(game1_df.head())
 game1_df.to_csv('game1_formatted.csv')
+
+
+//４列に変えろと言われる。
+import pandas as pd
+game2_df = pd.read_csv("/content/sample_data/game2.csv") 
+game2_df = game2_df.drop("ranking", axis=1)
+print(game2_df.head())
+game2_df = game2_df.fillna(0)
+game2_df = game2_df.sort_values("billing_amount(¥)", ascending=False)
+game2_df = game2_df.reset_index(drop=True)
+print(game2_df.head())
+game2_df.to_csv('game2_formatted.csv')
